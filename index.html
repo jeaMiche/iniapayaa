@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Some1 Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fcf8f2;
+            --maroon: #800000;
+            --text-dark: #3d3d3d;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-dark);
+            overflow: hidden;
+        }
+
+        .particle {
+            position: fixed;
+            top: -10%;
+            font-size: 15px;
+            z-index: 1;
+            opacity: 0.4;
+            animation: fall linear forwards;
+            color: var(--maroon);
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            width: 95%;
+            max-width: 380px;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            z-index: 10;
+            border: 1px solid #e9e2d8;
+            height: auto;
+            max-height: 90vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .card::-webkit-scrollbar {
+            display: none;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            color: var(--maroon);
+        }
+
+        h3 {
+            margin: 10px 0;
+            color: var(--maroon);
+            font-size: 1.2rem;
+        }
+
+        .text-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            position: relative;
+            min-height: 50px;
+        }
+
+        .btn-slot {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 15px;
+            width: 100%;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        #yesBtn {
+            background: var(--maroon);
+            color: var(--bg-color);
+            box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
+        }
+
+        #noBtn {
+            background: #ecece7;
+            color: #7a7a7a;
+            position: relative;
+            z-index: 20;
+            white-space: nowrap;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg-color);
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Foto Furina sebagai Link Download */
+        .furina-link {
+            display: inline-block;
+            margin: 15px 0;
+            text-decoration: none;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: popIn 0.8s ease forwards 0.5s;
+            cursor: pointer;
+        }
+
+        .furina-img {
+            width: 220px;
+            height: auto;
+            border-radius: 15px;
+            border: 4px solid var(--maroon);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .furina-link:hover .furina-img {
+            transform: scale(1.05); /* Membesar sedikit saat di-hover */
+        }
+
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="bgMusic" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.body.addEventListener('click', () => {
+            document.getElementById('bgMusic').play();
+        }, { once: true });
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.innerHTML = '✨';
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 2 + 4) + 's';
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 6000);
+        }
+        setInterval(createParticle, 600);
+    </script>
+
+    <div class="card" id="mainCard">
+        <h1>MERRY CHRISTMAS!!!</h1>
+        <div class="text-content">
+            karena 2025 udah mau selesai, i think its the right time to say this..<br><br>
+            jujurly kita dah jarang chatan belakangan ini, aku mau bilang ini langsung di IG tuh pasti bakal awkward banget n i would embarrass myself TT (and idk how to do it properly..) <br><br>
+            <i>So....., i made this instead</i> sepertinya sudah ketebak arahnya bakal ke manaa, tapii intinya... JUJUR SEJUJURNYA, i have a crush on u...... dari first time i know that ure exist :D <br><br>
+            anw, ik new year masih ada beberapa hari lagi, but aku gemes bgt buat bilang
+            <h3 style="text-align: center;"><b>Happy Early New Year!</b></h3>
+            and i have a lil gift 4 u!
+        </div>
+
+        <div class="btn-container">
+            <div class="btn-slot">
+                <button id="yesBtn" onclick="showSuccess()">WHAT IS IT?</button>
+            </div>
+            <div class="btn-slot">
+                <button id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()" onclick="moveButton()">nope, not interested</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <h2 style="color: var(--maroon); margin-top: 0; font-family: 'Caveat', cursive; font-size: 2.5rem;">
+            TADAAA!!
+        </h2>
+        <p style="margin-bottom: 5px; font-weight: 600;">HERE is ur gift!!</p>
+        <p style="font-size: 0.8rem; color: #7a7a7a; margin-top: 0;">(click image to download)</p>
+
+        <a href="fuwrrrinaa.png" download="My_Gift_Furina.png" class="furina-link">
+            <img src="fuwrrrinaa.png" alt="Furina" class="furina-img">
+        </a>
+
+        <p style="font-size: 0.9rem; margin-top: 10px; margin-bottom: 10px; max-width: 280px;">
+            Hope u like it!
+        </p>
+        <h3 style="font-size: 1.1rem; padding: 0 10px;">
+           <b>MERRY CHRISTMAS AND HAPPY EARLY NEW YEAR!</b> 
+        </h3>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            btn.style.position = 'fixed';
+            btn.style.width = 'auto';
+            btn.style.zIndex = '999';
+            
+            const padding = 60;
+            const maxX = window.innerWidth - btn.offsetWidth - padding;
+            const maxY = window.innerHeight - btn.offsetHeight - padding;
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            btn.style.left = Math.max(padding/2, newX) + 'px';
+            btn.style.top = Math.max(padding/2, newY) + 'px';
+        }
+
+        function showSuccess() {
+            document.getElementById('overlay').style.display = 'flex';
+            document.getElementById('mainCard').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
